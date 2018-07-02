@@ -13,15 +13,38 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/index';
 import NotFoundPage from 'containers/NotFoundPage/index';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
-export default function App() {
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  appBar: {
+    margin: "auto",
+    align: "center",
+    textAlign:"center"
+  }
+};
+
+function App(props) {
+  const { classes } = props;
   return (
-    <div>
-      <Typography>Hi from App</Typography>
-      <Switch>        
-        <Route exact path="/" component={HomePage} />         
-        <Route component={NotFoundPage} />        
+    <div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <Typography variant="title" color="inherit" className={classes.appBar}>
+            Books
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Switch>
+        <Route exact path="/" component={HomePage} />        
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   );
 }
+
+export default withStyles(styles)(App);
