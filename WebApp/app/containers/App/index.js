@@ -22,7 +22,9 @@ const styles = {
     flexGrow: 1,
   },
   appBar: {
-    textAlign: 'center',
+    margin: "auto",
+    align: "center",
+    textAlign:"center"
   }
 };
 
@@ -33,12 +35,12 @@ function App(props) {
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography variant="title" color="inherit" className={classes.appBar}>
-            Books DB
+            Books
           </Typography>
         </Toolbar>
       </AppBar>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={HomePage} />        
         <Route component={NotFoundPage} />
       </Switch>
     </div>
