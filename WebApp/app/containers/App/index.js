@@ -9,13 +9,13 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import HomePage from 'containers/HomePage/index';
-import NotFoundPage from 'containers/NotFoundPage/index';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import HomePage from 'containers/HomePage/index';
+import NotFoundPage from 'containers/NotFoundPage/index';
+import Books from "containers/Books/index";
 
 const styles = {
   root: {
@@ -40,7 +40,8 @@ function App(props) {
         </Toolbar>
       </AppBar>
       <Switch>
-        <Route exact path="/" component={HomePage} />        
+        <Route exact path="/" component={HomePage} />      
+        <Route exact path="/books" component={Books}/>
         <Route component={NotFoundPage} />
       </Switch>
     </div>
