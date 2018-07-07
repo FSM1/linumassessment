@@ -7,37 +7,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
+import { compose, bindActionCreators } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectBooks from './selectors';
+
 import reducer from './reducer';
 import saga from './saga';
+import * as bookStoreActions from './actions';
+
+import BooksList from '../../components/BooksList/index';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Books extends React.PureComponent {
   render() {
-    return <div>
-      Hi from books
-      </div>;
+    const { bookStoreActions, bookStore } = this.props;
+    console.log(bookStore);
+    return (
+      <div>
+        <button onClick={() => { bookStoreActions.getBooks() }}>get books</button>
+        {(bookStore.books) && <BooksList books={bookStore.books} />} 
+      </div>
+    );
   }
 }
 
 Books.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  bookStoreActions: PropTypes.object,
 };
 
 const mapStateToProps = (state) => {
   return {
-  books: state.books
-}
+    bookStore: state.bookStore,
+  }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    bookStoreActions: bindActionCreators(bookStoreActions, dispatch),
   };
 }
 
@@ -46,7 +53,7 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'books', reducer });
+const withReducer = injectReducer({ key: 'bookStore', reducer });
 const withSaga = injectSaga({ key: 'books', saga });
 
 export default compose(
