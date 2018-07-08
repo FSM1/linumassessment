@@ -40,7 +40,7 @@ export class BooksList extends React.PureComponent {
         <TableBody>
           {books.map(book => {
             return (
-              <BookItem book={book} />
+              <BookItem book={book} key={book.id} />
             );
           })}
         </TableBody>
@@ -51,7 +51,7 @@ export class BooksList extends React.PureComponent {
 
 
 BooksList.propTypes = {
-  books: PropTypes.array,
+  books: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(BooksList);

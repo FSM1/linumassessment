@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
  * Direct selector to the books state domain
  */
 
-const selectBooksDomain = state => {};
+const selectBooksDomain = () => (state) => state.booksStore;
 
 /**
  * Other specific selectors
@@ -23,4 +23,3 @@ const makeSelectBooks = () =>
   });
 
 export default makeSelectBooks;
-export { selectBooksDomain };

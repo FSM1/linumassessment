@@ -13,7 +13,7 @@ import TableCell from '@material-ui/core/TableCell';
 class BookItem extends React.PureComponent {
   render() {
     const { book } = this.props;
-
+    console.log(book);
     return (
     <TableRow key={book.id}>
       <TableCell component="th" scope="row">{book.title}</TableCell>

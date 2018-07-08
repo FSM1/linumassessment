@@ -23,10 +23,11 @@ export class Books extends React.PureComponent {
   render() {
     const { bookStoreActions, bookStore } = this.props;
     console.log(bookStore);
+    
     return (
       <div>
         <button onClick={() => { bookStoreActions.getBooks() }}>get books</button>
-        {(bookStore.books) && <BooksList books={bookStore.books} />} 
+        {(bookStore && bookStore.books) && <BooksList books={Object.values(bookStore.books)} />}
       </div>
     );
   }
