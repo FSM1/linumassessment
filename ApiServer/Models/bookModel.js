@@ -8,7 +8,7 @@ const bookModel = new Schema({
     published: { type: Date },
     publisher: { type: String },
     pages: { type: Number },
-    description: { type: String },
-    website: { type: String }
+    quantitySold: { type: Number },
+    price: { type: Number },
 })
 export default mongoose.model('books', bookModel)

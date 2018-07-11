@@ -16,13 +16,12 @@ import reducer from './reducer';
 import saga from './saga';
 import * as bookStoreActions from './actions';
 
-import BooksList from '../../components/BooksList/index';
+import BooksList from 'components/BooksList/index';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Books extends React.PureComponent {
   render() {
     const { bookStoreActions, bookStore } = this.props;
-    console.log(bookStore);
     
     return (
       <div>

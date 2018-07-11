@@ -15,6 +15,6 @@ export function* getBooks() {
   }
 }
 
-export default function* apiData() {
+export default function* watchGetBooks() {
   yield takeLatest(GET_BOOKS, getBooks)
 }
