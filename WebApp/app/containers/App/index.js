@@ -15,7 +15,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import HomePage from 'containers/HomePage/index';
 import NotFoundPage from 'containers/NotFoundPage/index';
-import Books from "containers/Books/index";
+import Books from 'containers/Books/index';
+import AddBook from 'containers/AddBook/index';
 
 const styles = {
   root: {
@@ -41,7 +42,8 @@ function App(props) {
       </AppBar>
       <Switch>
         <Route exact path="/" component={HomePage} />      
-        <Route exact path="/books" component={Books}/>
+        <Route exact path="/books" component={Books} />
+        <Route exact path="/books/add" component={AddBook} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
