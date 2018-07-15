@@ -23,7 +23,6 @@ export class Books extends React.Component {
   }
   
   componentDidMount() {
-    console.log("hi");
     this.props.bookStoreActions.startPollingBooks();
   }
 
