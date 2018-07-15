@@ -4,14 +4,12 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { ADD_BOOK } from './constants';
 
 export const initialState = {};
 
 function addBookReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { GET_BOOKS } from 'containers/Books/constants';
-import { booksLoaded, booksLoadingError } from 'containers/Books/actions';
+import { GET_BOOKS } from './constants';
+import { booksLoaded, booksLoadingError } from './actions';
 import request from 'utils/request';
 
 // Individual exports for testing

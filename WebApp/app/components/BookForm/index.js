@@ -6,40 +6,63 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Paper} from '@material-ui/core';
+import { Paper, TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
-  root: {
-    margin: 20,
-    padding: 20,
-    maxWidth: 400
-  }
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+
+    width: 200,
+  },
 }
 
-class BookForm extends React.PureComponent {
+class BookForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = props.Book;
+
+    this.handleInputChange.bind(this);
+    this.handleSubmitForm.bind(this);
+  }
+  
+  handleInputChange = event => { 
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.id;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmitForm = event => {
+    event.preventDefault();
+    const newBook = this.state;
+
+    this.props.onSubmitAction(newBook);
+  };
+
   render() {
-    const { onSubmitAction, Book } = this.props;
+    const { classes } = this.props;
+    const { isbn, title, subtitle, author, published, publisher, pages, quantitySold, price } = this.state;
+
     return <Paper>
-      <form onSubmit={onSubmitAction}>
-        <label>ISBN:</label>
-        <input type="text" defaultValue={Book.isbn} />
-        <label>Title:</label>
-        <input type="text" defaultValue={Book.title} />
-        <label>Subtitle:</label>
-        <input type="text" defaultValue={Book.subtitle} />
-        <label>Author:</label>
-        <input type="text" defaultValue={Book.author} />        
-        <label>Publisher:</label>
-        <input type="text" defaultValue={Book.publisher} />
-        <label>Published:</label>
-        <input type="date" defaultValue={Book.published} />
-        <label>Pages:</label>
-        <input type="number" defaultValue={Book.pages} />
-        <label>Quantity Sold:</label>
-        <input type="number" disabled defaultValue={Book.quantitySold} />
-        <label>Price:</label>
-        <input type="text" disabled defaultValue={Book.price} />
+      <form onSubmit={this.handleSubmitForm} className={classes.container}>
+        <TextField id="isbn" label="ISBN" className={classes.textField} value={ isbn } onChange={this.handleInputChange}  />
+        <TextField id="title" label="Title" className={classes.textField} value={ title } onChange={this.handleInputChange} />
+        <TextField id="subtitle" label="Subtitle" className={classes.textField} value={ subtitle } onChange={this.handleInputChange} />
+        <TextField id="author" label="Author" className={classes.textField} value={ author } onChange={this.handleInputChange} />
+        <TextField id="publisher" label="Publisher" className={classes.textField} value={ publisher } onChange={this.handleInputChange} />
+        <TextField id="published" label="Published" className={classes.textField} value={ published } onChange={this.handleInputChange} />
+        <TextField id="pages" label="Pages" className={classes.textField} value={ pages } type="number" onChange={this.handleInputChange} />
+        <TextField id="quantitySold" label="Quantity Sold" className={classes.textField} value={ quantitySold } type="number" onChange={this.handleInputChange} />
+        <TextField id="price" label="Price" className={classes.textField} value={ price } type="currency" onChange={this.handleInputChange} />
+
+        <Button type="submit">Submit</Button>
       </form>
     </Paper>;
   }
@@ -56,7 +79,7 @@ BookForm.defaultProps = {
     title: "",
     subtitle: "",
     author: "",
-    published: "",
+    published: new Date(),
     publisher: "",
     pages: 0,
     quantitySold: 0,
