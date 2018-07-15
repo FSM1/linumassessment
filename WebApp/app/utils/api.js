@@ -4,7 +4,9 @@ const apiHost = (process.env.NODE_ENV !== 'production') ? `//${config.apiHost}` 
 
 export function fetchBooks() {
   const relativeUri = '/api/books';
-  return fetch(`${apiHost}${relativeUri}`);
+  return fetch(`${apiHost}${relativeUri}`)
+  .then(checkStatus)
+  .then(parseJSON);
 }
 
 export function addBook(payload) {
