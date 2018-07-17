@@ -1,6 +1,6 @@
-import config from '../config.json';
+import config from '../config.js';
 
-const apiHost = (process.env.NODE_ENV !== 'production') ? `//${config.apiHost}` : '';
+const apiHost = `http://${config.api.host}`;
 
 export function fetchBooks() {
   const relativeUri = '/api/books';
