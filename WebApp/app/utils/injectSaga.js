@@ -18,9 +18,11 @@ import getInjectors from './sagaInjectors';
 export default ({ key, saga, mode }) => WrappedComponent => {
   class InjectSaga extends React.Component {
     static WrappedComponent = WrappedComponent;
+
     static contextTypes = {
       store: PropTypes.object.isRequired,
     };
+
     static displayName = `withSaga(${WrappedComponent.displayName ||
       WrappedComponent.name ||
       'Component'})`;
@@ -37,6 +39,7 @@ export default ({ key, saga, mode }) => WrappedComponent => {
       ejectSaga(key);
     }
 
+    /* eslint-disable react/destructuring-assignment */
     injectors = getInjectors(this.context.store);
 
     render() {

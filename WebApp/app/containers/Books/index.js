@@ -10,50 +10,51 @@ import { connect } from 'react-redux';
 import { compose, bindActionCreators } from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import saga from './saga';
-import reducer from './reducer';
-import * as bookStoreActions from 'models/books/actions';
-import {Paper} from '@material-ui/core';
+import * as bookActions from 'models/books/actions';
+import { Paper } from '@material-ui/core';
 import BooksList from 'components/BooksList/index';
+import reducer from 'models/books/reducer';
+import saga from './saga';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Books extends React.Component {
-  constructor(props) {
-    super(props);   
-  }
-  
   componentDidMount() {
-    this.props.bookStoreActions.startPollingBooks();
+    const { BookActions } = this.props;
+    BookActions.startPollingBooks();
   }
 
   componentWillUnmount() {
-    this.props.bookStoreActions.stopPollingBooks();
+    const { BookActions } = this.props;
+    BookActions.stopPollingBooks();
   }
 
   render() {
-     const { bookStore } = this.props;
-    
+    const { bookStore } = this.props;
+
     return (
       <Paper>
-        {(bookStore && bookStore.books) && <BooksList books={Object.values(bookStore.books)} />}
+        {bookStore &&
+          bookStore.books && (
+        /* eslint-disable prettier/prettier */
+          <BooksList books={Object.values(bookStore.books)} />
+        )}
       </Paper>
     );
   }
 }
 
 Books.propTypes = {
-  bookStoreActions: PropTypes.object,
+  BookActions: PropTypes.object,
+  bookStore: PropTypes.object,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    bookStore: state.bookStore,
-  }
-}
+const mapStateToProps = state => ({
+  bookStore: state.bookStore,
+});
 
 function mapDispatchToProps(dispatch) {
   return {
-    bookStoreActions: bindActionCreators(bookStoreActions, dispatch),
+    BookActions: bindActionCreators(bookActions, dispatch),
   };
 }
 
@@ -63,7 +64,7 @@ const withConnect = connect(
 );
 
 const withReducer = injectReducer({ key: 'bookStore', reducer });
-const withSaga = injectSaga({ key: 'books', saga });
+const withSaga = injectSaga({ key: 'booksSaga', saga });
 
 export default compose(
   withReducer,

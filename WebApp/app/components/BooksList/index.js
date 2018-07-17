@@ -8,18 +8,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
-import { Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@material-ui/core';
 
 import BookItem from 'components/BookItem/index';
 
 const styles = {
-  root: {    
+  root: {
     overflowX: 'auto',
   },
   table: {
     maxWidth: 700,
   },
-}
+};
 
 export class BooksList extends React.PureComponent {
   render() {
@@ -34,11 +41,7 @@ export class BooksList extends React.PureComponent {
             </TableRow>
           </TableHead>
           <TableBody>
-            {books.map(book => {
-              return (
-                <BookItem book={book} key={book.id} />
-              );
-            })}
+            {books.map(book => <BookItem book={book} key={book.id} />)}
           </TableBody>
         </Table>
       </Paper>
@@ -46,9 +49,9 @@ export class BooksList extends React.PureComponent {
   }
 }
 
-
 BooksList.propTypes = {
   books: PropTypes.array.isRequired,
+  classes: PropTypes.object,
 };
 
 export default withStyles(styles)(BooksList);

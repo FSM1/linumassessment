@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
  * Direct selector to the books state domain
  */
 
-const selectBooksDomain = () => (state) => state.booksStore;
+const selectBooksDomain = () => state => state.booksStore;
 
 /**
  * Other specific selectors
@@ -15,8 +15,7 @@ const selectBooksDomain = () => (state) => state.booksStore;
  */
 
 const makeSelectBooks = () =>
-  createSelector(selectBooksDomain(),
-  (book) => {
+  createSelector(selectBooksDomain(), book => {
     const books = Object.values(book);
 
     return books;

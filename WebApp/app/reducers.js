@@ -26,7 +26,8 @@ export function routeReducer(state = routeInitialState, action) {
   switch (action.type) {
     /* istanbul ignore next */
     case LOCATION_CHANGE:
-      return { ...state,
+      return {
+        ...state,
         location: action.payload,
       };
     default:
@@ -39,7 +40,7 @@ export function routeReducer(state = routeInitialState, action) {
  */
 export default function createReducer(injectedReducers) {
   return combineReducers({
-    route: routeReducer,    
+    route: routeReducer,
     ...injectedReducers,
   });
 }
