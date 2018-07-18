@@ -14,9 +14,11 @@ import getInjectors from './reducerInjectors';
 export default ({ key, reducer }) => WrappedComponent => {
   class ReducerInjector extends React.Component {
     static WrappedComponent = WrappedComponent;
+
     static contextTypes = {
       store: PropTypes.object.isRequired,
     };
+
     static displayName = `withReducer(${WrappedComponent.displayName ||
       WrappedComponent.name ||
       'Component'})`;
@@ -27,6 +29,7 @@ export default ({ key, reducer }) => WrappedComponent => {
       injectReducer(key, reducer);
     }
 
+    /* eslint-disable react/destructuring-assignment */
     injectors = getInjectors(this.context.store);
 
     render() {

@@ -1,11 +1,11 @@
 /**
- * NotFoundPages 
+ * NotFoundPages
  */
 
 import React from 'react';
-
 import Typography from '@material-ui/core/Typography';
 
+/* eslint-disable react/prefer-stateless-function */
 export default class NotFound extends React.PureComponent {
   render() {
     return (

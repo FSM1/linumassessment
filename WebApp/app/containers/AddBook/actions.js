@@ -16,7 +16,7 @@ export function addBook(book) {
 export function addBookSuccess(book) {
   return {
     type: ADD_BOOK_SUCCESS,
-    payload: { book }
+    payload: { book },
   };
 }
 

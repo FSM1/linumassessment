@@ -1,4 +1,3 @@
-// import { fromJS } from 'immutable';
 // import { selectBooksDomain } from '../selectors';
 
 describe('selectBooksDomain', () => {

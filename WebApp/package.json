@@ -1,16 +1,16 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.6.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "book-publisher",
+  "version": "1.0.0",
+  "description": "A simple browser interface for the books api, in React+Redux+Saga",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/FSM1/bookpublisher.git"
   },
   "engines": {
     "npm": ">=5",
     "node": ">=8"
   },
-  "author": "Max Stoiber",
+  "author": "Michael Yankelev",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
@@ -109,6 +109,16 @@
     ]
   },
   "jest": {
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "jest tests",
+          "output": "coverage/jest-junit.xml"
+        }
+      ]
+    ],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/**/*.test.{js,jsx}",
@@ -157,6 +167,7 @@
     "intl": "1.2.5",
     "invariant": "2.2.4",
     "ip": "1.1.5",
+    "jest-junit": "^5.1.0",
     "lodash": "4.17.10",
     "minimist": "1.2.0",
     "prop-types": "15.6.1",
@@ -200,14 +211,14 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
-    "eslint": "4.19.1",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-import-resolver-webpack": "0.10.0",
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
-    "eslint-plugin-prettier": "2.6.0",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "7.9.1",
     "eslint-plugin-redux-saga": "0.9.0",
     "eventsource-polyfill": "0.9.6",

@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -23,31 +24,42 @@ const styles = {
     flexGrow: 1,
   },
   appBar: {
-    margin: "auto",
-    align: "center",
-    textAlign:"center"
-  }
+    margin: 'auto',
+    align: 'center',
+    textAlign: 'center',
+  },
 };
 
-function App(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <Typography variant="title" color="inherit" className={classes.appBar}>
-            Books
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Switch>
-        <Route exact path="/" component={HomePage} />      
-        <Route exact path="/books" component={Books} />
-        <Route exact path="/books/add" component={AddBook} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
-  );
+/* eslint-disable react/prefer-stateless-function */
+export class App extends React.Component {
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <Typography
+              variant="title"
+              color="inherit"
+              className={classes.appBar}
+            >
+              Books
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/books" component={Books} />
+          <Route exact path="/books/add" component={AddBook} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
+    );
+  }
 }
+
+App.propTypes = {
+  classes: PropTypes.object,
+};
 
 export default withStyles(styles)(App);

@@ -1,25 +1,26 @@
-import config from '../config.json';
+import config from '../config';
 
-const apiHost = (process.env.NODE_ENV !== 'production') ? `//${config.apiHost}` : '';
+const apiHost = `http://${config.api.host}`;
 
 export function fetchBooks() {
   const relativeUri = '/api/books';
   return fetch(`${apiHost}${relativeUri}`)
-  .then(checkStatus)
-  .then(parseJSON);
+    .then(checkStatus)
+    .then(parseJSON);
 }
 
 export function addBook(payload) {
   const relativeUri = '/api/books';
   return fetch(`${apiHost}${relativeUri}`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    mode: "cors",
-    body: JSON.stringify(payload)}
-  ).then(checkStatus)
-  .then(parseJSON);
+    mode: 'cors',
+    body: JSON.stringify(payload),
+  })
+    .then(checkStatus)
+    .then(parseJSON);
 }
 
 /**
