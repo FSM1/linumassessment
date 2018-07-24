@@ -10,10 +10,16 @@ services:
       context: ./ApiServer
     depends_on: 
       - mongo
+    ports:
+      - "3001:3001"
+    links:
+      - mongo
   webapp:
     build: 
       context: ./WebApp
     depends_on: 
       - apiserver
-    ports: 
-      - 3000:3000
+    ports:
+      - "3000:3000"
+    links:
+      - apiserver
