@@ -1,7 +1,6 @@
 import express from 'express';
 import Book from '../models/bookModel';
 
-
 const bookRouter = express.Router();
 
 bookRouter.use('/:bookId', (req, res, next) => {

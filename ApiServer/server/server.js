@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import bookRouter from './Routes/bookRouter';
+import bookRouter from './routes/bookRouter';
 import config from './config';
 
 const db = mongoose.connect(config.db.host);

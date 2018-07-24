@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
+
 const Schema = mongoose.Schema;
+
 const bookModel = new Schema({
     isbn: { type: String },
     title: { type: String },
@@ -10,5 +12,6 @@ const bookModel = new Schema({
     pages: { type: Number },
     quantitySold: { type: Number },
     price: { type: Number },
-})
+});
+
 export default mongoose.model('books', bookModel)

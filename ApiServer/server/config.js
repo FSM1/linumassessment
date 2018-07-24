@@ -3,7 +3,7 @@ const config = {
     port: 3001
   },
   db: {
-    host: 'mongodb://127.0.0.1/linumassessment',
+    host: 'mongodb://127.0.0.1/bookpublisher',
   }
 };
 

@@ -7,7 +7,7 @@ mongooseLib.Promise = global.Promise;
 export const mongoose = mongooseLib;
 
 // Export the mongodb url
-export const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/linumassessment';
+export const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/bookpublisher';
 
 /*
   Seeders List
