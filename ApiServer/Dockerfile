@@ -4,7 +4,6 @@ WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --silent && mv node_modules ../
 RUN npm install -g babel-cli
-RUN ls
 COPY . .
 RUN npm run build
 EXPOSE 3001
