@@ -1,5 +1,5 @@
 import { Seeder } from 'mongoose-data-seed';
-import bookModel from '../models/bookModel';
+import bookModel from '../server/models/bookModel';
 
 const data = [
   {

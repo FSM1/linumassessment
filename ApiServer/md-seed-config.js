@@ -1,5 +1,6 @@
 import mongooseLib from 'mongoose';
 import Books from "./seed_data/books.seeder";
+import config from "./server/config";
 
 mongooseLib.Promise = global.Promise;
 
@@ -7,7 +8,7 @@ mongooseLib.Promise = global.Promise;
 export const mongoose = mongooseLib;
 
 // Export the mongodb url
-export const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/linumassessment';
+export const mongoURL = config.db.host;
 
 /*
   Seeders List
