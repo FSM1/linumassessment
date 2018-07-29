@@ -44,6 +44,7 @@
     "pretest": "npm run test:clean && npm run lint",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:ci": "cross-env NODE_ENV=test jest --ci --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prettify": "prettier --write"
@@ -117,7 +118,9 @@
         {
           "suiteName": "Books-WebApp",          
           "ancestorSeparator": " › ",
-          "usePathForSuiteName": "true"
+          "output": "./coverage/TEST_WebApp.xml",
+          "classNameTemplate": "{classname}",
+          "titleTemplate": "{title}"
         }
       ]
     ],
@@ -131,10 +134,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 10,
-        "branches": 10,
-        "functions": 10,
-        "lines": 10
+        "statements": 0,
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
       }
     },
     "moduleDirectories": [
