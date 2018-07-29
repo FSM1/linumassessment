@@ -140,6 +140,11 @@
         "lines": 0
       }
     },
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "cobertura"
+    ],
     "moduleDirectories": [
       "node_modules",
       "app"
