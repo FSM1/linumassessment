@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 var gulp = require('gulp');
 var path = require('path');
 var zip = require('gulp-zip');

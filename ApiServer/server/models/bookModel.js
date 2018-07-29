@@ -14,4 +14,4 @@ const bookModel = new Schema({
     price: { type: Number },
 });
 
-export default mongoose.model('books', bookModel)
+export default mongoose.model('books', bookModel);

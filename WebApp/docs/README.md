@@ -1,5 +1,9 @@
 # Documentation
 
+[![Build status](https://seekersitsolutions.visualstudio.com/BookPublisher/_apis/build/status/
+bookpublisher-webapp-CI?branch=master)](https://seekersitsolutions.visualstudio.com/BookPublisher/_apis/build/status/
+bookpublisher-webapp-CI?branch=master)]
+
 ## Table of Contents
 
 - [General](general)
