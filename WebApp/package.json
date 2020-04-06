@@ -174,7 +174,7 @@
     "ip": "1.1.5",
     "jest-junit": "^5.1.0",
     "lodash": "4.17.10",
-    "minimist": "1.2.0",
+    "minimist": "1.2.3",
     "prop-types": "15.6.1",
     "react": "16.4.1",
     "react-dom": "16.4.1",
